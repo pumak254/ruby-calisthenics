@@ -1,14 +1,17 @@
 module FunWithStrings
   def palindrome?
     self.downcase!
-    self.gsub!(/[!-@]|[\[-`]|[\{-~]|\s/,'')
+    self.gsub!(/[!-@]|[\[-`]|[\{-~]|\s/,'') # leave letters only
     return self == self.reverse
   end
   def count_words
-    # your code here
     count_hash = Hash.new(0)
+    self.gsub!(/[!-@]|[\[-`]|[\{-~]/,'') # remove punctuation
     words = self.split(' ')
-    words.each { |word| count_hash[word] = count_hash[word] + 1 }
+    words.each do |word| 
+      word.downcase!
+      count_hash[word] = count_hash[word] + 1 
+    end
     return count_hash
   end
   def anagram_groups
