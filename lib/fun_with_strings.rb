@@ -1,9 +1,15 @@
 module FunWithStrings
   def palindrome?
-    # your code here
+    self.downcase!
+    self.gsub!(/[!-@]|[\[-`]|[\{-~]|\s/,'')
+    return self == self.reverse
   end
   def count_words
     # your code here
+    count_hash = Hash.new(0)
+    words = self.split(' ')
+    words.each { |word| count_hash[word] = count_hash[word] + 1 }
+    return count_hash
   end
   def anagram_groups
     # your code here
