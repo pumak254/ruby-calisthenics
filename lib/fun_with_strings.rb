@@ -7,6 +7,7 @@ module FunWithStrings
   def count_words
     count_hash = Hash.new(0) # zero count for all words
     self.gsub!(/[!-@]|[\[-`]|[\{-~]/,'') # remove punctuation
+    #self.split(/\W+/)
     words = self.split(' ')
     words.each do |word| 
       word.downcase!
